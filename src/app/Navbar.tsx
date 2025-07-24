@@ -4,10 +4,11 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react'; // icon library
+import { Menu, X } from 'lucide-react';
 
 const navItems = [
   { label: 'Home', href: '/' },
+  { label: 'Agenda', href: '/agenda' }, 
   { label: 'Issues', href: '/issues' },
   { label: 'Solutions', href: '/solutions' },
   { label: 'Conclusion', href: '/conclusion' },
