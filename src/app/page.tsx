@@ -23,7 +23,7 @@ export default function HomePage() {
       </motion.div>
 
       {/* Overlay Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 bg-black/30">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4  bg-black/30">
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}

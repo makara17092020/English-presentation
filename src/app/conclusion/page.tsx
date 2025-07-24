@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function ConclusionPage() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-green-200 to-green-400 px-6 text-center py-20">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-green-50 to-white px-6 text-center py-20">
       <motion.h1
         className="text-5xl md:text-6xl font-extrabold text-green-900 mb-8"
         initial={{ opacity: 0, y: -60 }}

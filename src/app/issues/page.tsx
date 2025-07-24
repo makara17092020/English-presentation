@@ -37,7 +37,7 @@ const environmentalIssues = [
 
 export default function IssuesPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-100 to-green-300 py-10 px-4 md:px-10">
+    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white py-10 px-4 md:px-10">
       <motion.h1
         className="text-4xl md:text-5xl font-bold text-green-800 text-center mb-12"
         initial={{ scale: 0.9, opacity: 0 }}

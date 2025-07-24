@@ -32,7 +32,7 @@ const solutions = [
 
 export default function SolutionPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-tr from-blue-100 via-green-100 to-green-200 py-12 px-6 md:px-16">
+    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white py-12 px-6 md:px-16">
       <motion.h1
         className="text-4xl md:text-6xl font-extrabold text-center text-green-800 mb-16"
         initial={{ opacity: 0, y: -50 }}
