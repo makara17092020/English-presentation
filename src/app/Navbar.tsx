@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react'; // icon library
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -14,6 +16,7 @@ const navItems = [
 
 export default function NavBar() {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <header className="bg-green-700/95 backdrop-blur-md text-white shadow-lg border-b border-green-600 sticky top-0 z-50">
@@ -26,24 +29,29 @@ export default function NavBar() {
           <h1 className="text-2xl font-semibold tracking-wide">EnviroSite</h1>
         </div>
 
-        {/* Navigation */}
-        <nav className="flex space-x-8 relative">
+        {/* Hamburger Toggle */}
+        <button
+          className="md:hidden focus:outline-none"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex space-x-8">
           {navItems.map(({ href, label }) => {
             const isActive = pathname === href;
             return (
               <Link
                 key={href}
                 href={href}
-                aria-current={isActive ? 'page' : undefined}
                 className={`
-                  relative px-3 py-1 font-medium text-white
-                  hover:text-green-200 transition-colors duration-200
-                  ${isActive ? 'text-green-300 font-semibold' : ''}
+                  relative px-3 py-1 font-medium transition-colors
+                  ${isActive ? 'text-green-300 font-semibold' : 'text-white hover:text-green-200'}
                 `}
               >
                 {label}
-
-                {/* Active underline */}
                 <AnimatePresence>
                   {isActive && (
                     <motion.span
@@ -61,6 +69,39 @@ export default function NavBar() {
           })}
         </nav>
       </div>
+
+      {/* Mobile Nav */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-green-700/95 px-6 pb-4"
+          >
+            <ul className="space-y-4 text-lg font-medium">
+              {navItems.map(({ href, label }) => {
+                const isActive = pathname === href;
+                return (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      onClick={() => setIsOpen(false)}
+                      className={`
+                        block py-1 transition
+                        ${isActive ? 'text-green-300 font-semibold' : 'text-white hover:text-green-200'}
+                      `}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
