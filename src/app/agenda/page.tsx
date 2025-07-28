@@ -9,6 +9,17 @@ export default function AgendaPage() {
         Environmental Protection Agenda 
       </h1>
 
+      {/* Section: Introduction */}
+      <motion.section
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="bg-white shadow-lg rounded-xl p-8 border-l-4 border-green-600"
+      >
+        <h2 className="text-3xl font-bold text-green-700 mb-2">🌱 Introduction</h2>
+      </motion.section>
+
       {/* Section: Issues */}
       <motion.section
         initial={{ opacity: 0, y: 50 }}
