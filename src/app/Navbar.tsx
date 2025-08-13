@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Introduction', href: '/introduction' },
-  { label: 'Agenda', href: '/agenda' },
-  { label: 'Issues', href: '/issues' },
-  { label: 'Solutions', href: '/solutions' },
-  { label: 'Conclusion', href: '/conclusion' },
-  { label: 'Q & A', href: '/q&a' }, 
-  { label: 'Thank', href: '/thank' },
+  { label: "Home", href: "/" },
+  { label: "Agenda", href: "/agenda" },
+  { label: "Introduction", href: "/introduction" },
+  { label: "Issues", href: "/issues" },
+  { label: "Solutions", href: "/solutions" },
+  { label: "Conclusion", href: "/conclusion" },
+  { label: "Q & A", href: "/q&a" },
+  { label: "Thank", href: "/thank" },
 ];
 
 export default function NavBar() {
@@ -51,7 +51,11 @@ export default function NavBar() {
                 href={href}
                 className={`
                   relative px-3 py-1 font-medium transition-colors
-                  ${isActive ? 'text-green-300 font-semibold' : 'text-white hover:text-green-200'}
+                  ${
+                    isActive
+                      ? "text-green-300 font-semibold"
+                      : "text-white hover:text-green-200"
+                  }
                 `}
               >
                 {label}
@@ -61,9 +65,13 @@ export default function NavBar() {
                       layoutId="underline"
                       className="absolute left-0 right-0 bottom-0 h-1 bg-green-300 rounded-full"
                       initial={{ width: 0 }}
-                      animate={{ width: '100%' }}
+                      animate={{ width: "100%" }}
                       exit={{ width: 0 }}
-                      transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 500,
+                        damping: 30,
+                      }}
                     />
                   )}
                 </AnimatePresence>
@@ -78,7 +86,7 @@ export default function NavBar() {
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
+            animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="md:hidden bg-green-700/95 px-6 pb-4"
@@ -93,7 +101,11 @@ export default function NavBar() {
                       onClick={() => setIsOpen(false)}
                       className={`
                         block py-1 transition
-                        ${isActive ? 'text-green-300 font-semibold' : 'text-white hover:text-green-200'}
+                        ${
+                          isActive
+                            ? "text-green-300 font-semibold"
+                            : "text-white hover:text-green-200"
+                        }
                       `}
                     >
                       {label}

@@ -1,20 +1,23 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const qaData = [
   {
-    question: 'Why is climate change a serious issue?',
-    answer: 'Climate change makes the Earth hotter, causes floods, and bad weather. This can hurt animals, plants, and people.',
+    question: "Why is climate change a serious issue?",
+    answer:
+      "Climate change makes the Earth hotter, causes floods, and bad weather. This can hurt animals, plants, and people.",
   },
   {
-    question: 'What can we do to reduce pollution?',
-    answer: 'We can help by recycling, using products that don’t harm nature, and using clean energy like solar or wind power.',
+    question: "What can we do to reduce pollution?",
+    answer:
+      "We can help by recycling, using products that don’t harm nature, and using clean energy like solar or wind power.",
   },
   {
-    question: 'Why is biodiversity important?',
-    answer: 'Biodiversity means many different plants and animals. It keeps nature balanced and gives us food, medicine, and clean air.',
+    question: "What causes climate change?",
+    answer:
+      "Climate change happens when gases like carbon dioxide from cars and factories trap heat in the air, making Earth warmer and weather more extreme.",
   },
 ];
 
@@ -37,7 +40,7 @@ export default function QAPage() {
           onClick={() => setShowAll(!showAll)}
           className="px-6 py-3 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition cursor-pointer"
         >
-          {showAll ? 'Hide All Questions' : 'Show All Questions'}
+          {showAll ? "Hide All Questions" : "Show All Questions"}
         </button>
       </div>
 
@@ -63,7 +66,7 @@ export default function QAPage() {
                     <motion.p
                       className="mt-3 text-gray-700"
                       initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
+                      animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
                     >
